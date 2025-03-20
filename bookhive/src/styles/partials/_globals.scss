@@ -43,10 +43,12 @@ h3 {
 }
 
 h4 {
-  color: $table-text-color;
-  text-transform: uppercase;
   @include text-style(0.6875rem, 1rem, 600, normal);
   @include responsive(tablet, desktop) {
     @include text-style(0.75rem, 1.125rem, 600, normal);
   }
+}
+
+p{
+    @include text-style(.8125rem, 1.25rem, 400, normal);
 }

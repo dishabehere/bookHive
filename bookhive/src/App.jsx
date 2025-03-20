@@ -1,15 +1,17 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import Header from "../src/components/Header/Header.jsx";
 import './App.scss';
 
 function App() {
   return(
-    // <Header />
     <Router>
-      <Route path="/" element={<LandingPage />} />
-
+      <Header />
+      <Routes>
+      {/* <Route path="/" element={<LandingPage />} /> */}
+      </Routes>
+      {/* <Footer /> */}
     </Router>
-    // <Footer />
+    
   );
 }
 
