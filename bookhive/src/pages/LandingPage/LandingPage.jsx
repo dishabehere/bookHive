@@ -20,9 +20,6 @@ function LandingPage() {
                     </div>
                 </div>
             </div>
-
-
-
         </section>
     );
 }

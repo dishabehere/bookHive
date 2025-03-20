@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import logo from '../../assets/Logo.jpg';
 import home from '../../assets/icons/home.svg';
 import profile from '../../assets/icons/profile.svg'
-import './Header.scss';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 // import IconButton from '@mui/material/IconButton';
 // import AccountCircle from '@mui/icons-material/AccountCircle';
 import Badge from '@mui/material/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Link } from "react-router-dom";
+import './Header.scss';
 
 function Header() {
   const [auth, setAuth] = useState(false);
@@ -22,11 +23,13 @@ function Header() {
 
   return (
     <section className="header">
+      <Link to={`/`} className="header__landing-link">
       <img className="header__logo" src={logo} alt="BookHive Logo" />
-      
+      </Link>
       <nav className="header__nav-bar">
-        <img className="header__home" src={home} alt="Home icon" />
-        
+        <Link to={`/Home`} className="header__home-link">
+          <img className="header__home" src={home} alt="Home icon" />
+        </Link>
         <div className="header__container">
             <Badge color="secondary" badgeContent={0} showZero>
             <ShoppingCartIcon className="header__cart" />
