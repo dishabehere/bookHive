@@ -1,5 +1,6 @@
 import React from "react";
-import hero from "../../assets/images/landing_page.jpg" 
+import hero from "../../assets/images/landing_page.jpg";
+import './LandingPage.scss';
 
 function LandingPage() {
     return(
@@ -13,12 +14,15 @@ function LandingPage() {
                 <div className="landingpage__info">
                     <p className="landingpage__text">Discover new stories and connect with fellow bookworms in your community. Join the hive today!</p>
                     <div className="landingpage__buttons">
-                        <button className="button button--login">LogIn</button>
-                        <p className="landingpage__text">OR</p>
-                        <button className="button button--signup">SignUp</button>
+                        <button className="landingpage__button landingpage__button--login">LogIn</button>
+                        <p className="landingpage__text landingpage__text--buttons">OR</p>
+                        <button className="landingpage__button landingpage__button--signup">SignUp</button>
                     </div>
                 </div>
             </div>
+
+
+
         </section>
     );
 }

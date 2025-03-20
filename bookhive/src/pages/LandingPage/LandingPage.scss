@@ -1,0 +1,54 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.landingpage{
+    background-color: $tertiary-background-color;
+    margin: -3.5rem 1rem 0.3125rem;
+    border-radius: 1.5625rem;
+    box-shadow: 0 0.125rem 0.3125rem $box-shadow;
+    padding: 1.5rem;
+
+    &__hero{
+        width: 100%;
+        border-radius: 1.25rem;
+    }
+
+    &__content{
+        padding: 1.5rem 0;
+        border-bottom: .125rem solid $global-text-color;
+
+    }
+
+    &__title{
+        text-align: center;
+        padding-bottom: 1rem;
+    }
+
+    &__text {
+        text-align: center;
+        &--buttons{
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+    }
+
+    &__info {
+        padding: 1.5rem 0 0;
+    }
+
+    &__buttons{
+        padding-top: 1.5rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+
+    }
+
+    &__button{
+        background-color: $button-secondary-color;
+        padding: 0.5rem 1rem;
+        border-radius: 1.25rem;
+        border: 0.125rem solid black;
+    }
+} 
