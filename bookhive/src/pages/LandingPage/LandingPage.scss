@@ -8,6 +8,16 @@
     box-shadow: 0 0.125rem 0.3125rem $box-shadow;
     padding: 1.5rem;
 
+    @include responsive(tablet){
+        margin: -5.625rem 2rem 0;
+        padding: 2rem;
+    }
+
+    @include responsive(desktop){
+        margin: -5.625rem 8.125rem 0;
+        padding: 2.5rem;
+    }
+
     &__hero{
         width: 100%;
         border-radius: 1.25rem;
@@ -17,11 +27,33 @@
         padding: 1.5rem 0;
         border-bottom: .125rem solid $global-text-color;
 
+        @include responsive(tablet){
+            border-bottom: none;
+            padding: 0;
+            padding-right: 1rem;
+            border-right: .125rem solid $global-text-color;
+        }
+    }
+
+    &__container{
+        @include responsive(tablet){
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+        }
     }
 
     &__title{
         text-align: center;
-        padding-bottom: 1rem;
+        padding-top: 1.5rem;
+
+        @include responsive(tablet){
+            padding: 2rem;
+        }
+
+        @include responsive(desktop){
+            padding: 3rem;
+        }
     }
 
     &__text {
@@ -34,6 +66,11 @@
 
     &__info {
         padding: 1.5rem 0 0;
+
+        @include responsive(tablet){
+            padding: 0;
+            padding-left: 1rem;
+        }
     }
 
     &__buttons{

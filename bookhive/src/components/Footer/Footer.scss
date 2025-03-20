@@ -11,11 +11,13 @@
     margin-top: 2rem;
 
     @include responsive(tablet) {
-      padding: 3.5rem 0 2.5rem 0;
+      padding: 1.5rem;
+      margin-top: 3rem;
     }
 
     @include responsive(desktop) {
-      margin-top: 2rem;
+      margin-top: 5rem;
+      padding: 2rem;
     }
   }
   &__text {
