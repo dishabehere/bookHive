@@ -49,7 +49,7 @@ function Header() {
                 </Menu>
             </div>
             ) : (
-            <button className="header__login" onClick={handleLogin}>Login</button>
+            <button className="header__login" onClick={handleLogin}><h3>LogIn</h3></button>
             )}
         </div>
       </nav>

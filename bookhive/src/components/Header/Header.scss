@@ -11,6 +11,13 @@
     align-items: center;
     gap: 1.5rem;
 
+    @include responsive(tablet){
+        padding: 2rem;
+        height: 11.625rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
 
     &__logo{    
         width: 7.5rem;
@@ -22,12 +29,21 @@
         width: 100%;
         display: flex;
         justify-content: space-between;
+
+        @include responsive(tablet){
+            justify-content: flex-end;
+            gap: 1.5rem;
+        }
     }
 
     &__container{
         display: flex;
         justify-content: space-between;
         gap: 1rem;
+
+        @include responsive(tablet){
+            gap: 1.5rem;
+        }
     }
 
     &__profile{
