@@ -29,9 +29,10 @@
   // Offset every 2nd book horizontally for honeycomb effect
  
   // Responsive adjustments for tablets
-  @media (min-width: 768px) {
+  @include responsive(tablet) {
     .books-grid {
       grid-template-columns: repeat(1, 1fr);
+      height: 627.5rem;
     }
 
     .book-container.shifted {
@@ -39,16 +40,27 @@
 
         @for $i from 2 through 38 { // Adjust 10 to the max number of books you expect
             &:nth-child(#{$i}) {
-              transform: translate3d(160px, translateY(translateYValue($i)), 10px);
+              transform: translate3d(160px, translateYValue($i), 10px);
             }
+      }
+    }
+
+    .book-container {
+      @for $i from 2 through 38 { // Adjust 10 to the max number of books you expect
+        &:nth-child(#{$i}) {
+          transform: translateY(translateYValue($i));
+        }
       }
     }
   }
   
   // Responsive adjustments for desktop view
-  @media (min-width: 1024px) {
+  @include responsive(desktop) {
     .books-grid {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(1, 1fr);
     }
   }
   
+  .book{
+    margin: .9375rem 0;
+  }
