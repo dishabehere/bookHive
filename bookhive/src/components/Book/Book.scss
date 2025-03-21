@@ -6,8 +6,8 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 180px;
-  height: 200px;
+  width: 300px;
+  height: 350px;
   background-color: #eec33d;
   clip-path: polygon(
     50% 0%,
@@ -18,50 +18,72 @@
     0% 25%
   );
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 10px;
+  margin: 15px;
   position: relative;
   overflow: hidden;
 
-  &__content {
-    padding: 20px;
-    color: #312f17;
+  &__hexagon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
   }
 
-  &__title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #ea9d3e;
-  }
+    &__cover {
+      width: 100px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
 
-  &__status {
-    font-size: 0.9rem;
-    margin-bottom: 4px;
-    color: #e5ac3f;
-  }
+    &__content {
+      padding: 15px;
+      color: #312f17;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(255, 255, 255, 0.8);
+      text-align: left;
+    }
 
-  &__address {
-    font-size: 0.8rem;
-    color: #e5bd3f;
-  }
+    &__title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #ea9d3e;
+    }
 
-  &__cover {
-    width: 100px;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 8px;
-  }
+    &__author {
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      color: #e5ac3f;
+    }
 
-  &__badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #ea9d3e;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 12px;
-    font-size: 0.8rem;
-  }
+    &__status {
+      font-size: 0.8rem;
+      margin-bottom: 4px;
+      color: #e5bd3f;
+    }
+
+    &__address {
+      font-size: 0.7rem;
+      color: #e5bd3f;
+    }
+
+    &__badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #ea9d3e;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+    }
 }
 
 .books-grid {

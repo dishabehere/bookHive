@@ -27,6 +27,7 @@
 
         @include responsive(tablet) {
         flex-direction: row;
+        justify-content: space-between;
         }
     }
 

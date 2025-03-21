@@ -4,12 +4,12 @@ import './Book.scss';
 
 function Book({ book }) {
   return (
-    <div className="hexagon-wrapper">
-      <div className="hexagon">
+    <div className="book">
+      <div className="book__hexagon">
       {cover ? (
         <img className="book__cover" src={book.cover} alt={`${book.title} cover`} />
       ) : (
-        <img className="book__cover" src={cover} alt={`${book.title} cover`} />
+        <img className="book__cover" src={cover} alt={`cover`} />
          // Fallback if cover is missing
       )}
         <div className="hexagon__content">
