@@ -1,17 +1,12 @@
 import React from "react";
-import cover from "../../assets/images/cover.jpg"
-import './Book.scss';
+import coverPlaceholder from "../../assets/images/cover.jpg"; // Fallback cover
+import "./Book.scss";
 
 function Book({ book }) {
   return (
     <div className="book">
       <div className="book__hexagon">
-      {cover ? (
-        <img className="book__cover" src={book.cover} alt={`${book.title} cover`} />
-      ) : (
-        <img className="book__cover" src={cover} alt={`cover`} />
-         // Fallback if cover is missing
-      )}
+        <img className="book__cover" src={book.cover || coverPlaceholder} alt={`${book.title} cover`} />
         <div className="hexagon__content">
           <h3 className="hexagon__title">{book.title}</h3>
           <p className="hexagon__author">by {book.author}</p>
