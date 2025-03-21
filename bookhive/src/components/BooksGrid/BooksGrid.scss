@@ -12,18 +12,12 @@
     padding: 20px;
     position: relative;
   }
-  
+  .book{
+    margin: .9375rem 0;
+  }
   // Position each book dynamically using a loop
   .book-container {
     position: relative;
-    
-    @include responsive(tablet){
-    @for $i from 2 through 38 { // Adjust 10 to the max number of books you expect
-      &:nth-child(#{$i}) {
-        transform: translateY(translateYValue($i));
-      }
-    }
-    }
   }
   
   // Offset every 2nd book horizontally for honeycomb effect
@@ -59,8 +53,14 @@
     .books-grid {
       grid-template-columns: repeat(1, 1fr);
     }
+
+    .book-container {
+      @for $i from 2 through 38 { // Adjust 10 to the max number of books you expect
+        &:nth-child(#{$i}) {
+          transform: translateY(translateYValue($i));
+        }
+      }
+    }
   }
   
-  .book{
-    margin: .9375rem 0;
-  }
+  
