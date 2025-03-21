@@ -38,6 +38,7 @@ function HomePage() {
       
       <section className="home__books">
         <h2 className="home__sub-heading">Available Books</h2>
+        <div className="home__book-list">
         {books.length > 0 ? (
             books.map(book => (
             <Book book={book}
@@ -52,6 +53,7 @@ function HomePage() {
             ) : (
             <p>No books available</p> // Optional fallback in case books array is empty
             )}
+        </div>
         </section>
     </section>
   );
