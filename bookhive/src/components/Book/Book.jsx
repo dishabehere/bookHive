@@ -1,19 +1,26 @@
 import React from "react";
+import cover from "../../assets/images/cover.jpg"
 import './Book.scss';
 
 function Book({ book }) {
-    return (
-        <div className="book">
-            <div className="book__hexagon">
-                <img src={book.cover} alt={book.title} className="book__cover" />
-            </div>
-            <div className="book__details">
-                <h3 className="book__title">{book.title}</h3>
-                <p className="book__status">Status: {book.status}</p>
-                <p className="book__address">{book.address}, {book.city}</p>
-            </div>
+  return (
+    <div className="hexagon-wrapper">
+      <div className="hexagon">
+      {cover ? (
+        <img className="book__cover" src={book.cover} alt={`${book.title} cover`} />
+      ) : (
+        <img className="book__cover" src={cover} alt={`${book.title} cover`} />
+         // Fallback if cover is missing
+      )}
+        <div className="hexagon__content">
+          <h3 className="hexagon__title">{book.title}</h3>
+          <p className="hexagon__author">by {book.author}</p>
+          <p className="hexagon__status">Status: {book.status}</p>
+          <p className="hexagon__address">{book.address}, {book.city}</p>
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
 export default Book;

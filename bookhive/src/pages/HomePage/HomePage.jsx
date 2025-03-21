@@ -1,34 +1,60 @@
-import React from "react";
-import searchIcon from "../../assets/icons/search-24px.svg";
-import Book from "../../components/Book/Book.jsx"
+// HomePage.jsx
+import React, { useEffect, useState } from 'react';
+import searchIcon from '../../assets/icons/search-24px.svg';
+import Book from '../../components/Book/Book.jsx';
+import { getAllBooks } from '../../utils/apiUtils.jsx';
 import './HomePage.scss';
 
 function HomePage() {
-    return(
-        <section className="home">
-            <section className="home__header">
-                <h1 className="home__title">Rent Books</h1>
-                <div className="home__search-bar">
-                    <input
-                    className="home__search-text"
-                    type="text"
-                    placeholder="Search..."
-                    />
-                    <img
-                    className="home__search-icon"
-                    src={searchIcon}
-                    alt="Search"
-                    />
-                </div>
-            </section>
-            <section className="home__books">
-                <h2 className="home__sub-heading">Available Books</h2>
+  const [books, setBooks] = useState([]);
 
-                {/* For n number of books from the books list call the Book page for each book */}
-                <Book />
-            </section>
+  useEffect(() => {
+    async function fetchBooks() {
+        try {
+          const data = await getAllBooks();
+          if (data && typeof data === 'object') {
+            const booksArray = Object.values(data); // Convert object to array
+            setBooks(booksArray);
+            // console.log(booksArray); // Log the array of books
+          } else {
+            console.error("Error: Data is not a valid object", data);
+          }
+        } catch (error) {
+          console.error("Error fetching books", error);
+        }
+      }
+    fetchBooks();
+  }, []);
+
+  return (
+    <section className="home">
+      <section className="home__header">
+        <h1 className="home__title">Rent Books</h1>
+        <div className="home__search-bar">
+          <input className="home__search-text" type="text" placeholder="Search..." />
+          <img className="home__search-icon" src={searchIcon} alt="Search" />
+        </div>
+      </section>
+      
+      <section className="home__books">
+        <h2 className="home__sub-heading">Available Books</h2>
+        {books.length > 0 ? (
+            books.map(book => (
+            <Book book={book}
+                key={book.id} 
+                id={book.id} 
+                title={book.title} 
+                author={book.author} 
+                synopsis={book.synopsis} 
+                cover={book.cover} 
+            />
+            ))
+            ) : (
+            <p>No books available</p> // Optional fallback in case books array is empty
+            )}
         </section>
-    );
+    </section>
+  );
 }
 
 export default HomePage;
