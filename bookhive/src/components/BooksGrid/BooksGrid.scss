@@ -1,9 +1,12 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
-// Sass function to calculate the Y translation
+
 @function translateYValue($n) {
-    @return -120px * ($n - 1);
+    @return (-120px * ($n - 1)) + $n*10px;
   }
+@function translateYValueDesk($n) {
+    @return (-120px * ($n - 1));
+}
   
   .books-grid {
     display: grid;
@@ -15,12 +18,11 @@
   .book{
     margin: .9375rem 0;
   }
-  // Position each book dynamically using a loop
+ 
   .book-container {
     position: relative;
   }
   
-  // Offset every 2nd book horizontally for honeycomb effect
  
   // Responsive adjustments for tablets
   @include responsive(tablet) {
@@ -30,17 +32,17 @@
     }
 
     .book-container.shifted {
-        transform: translate3d(160px, -120px, 10px);
+        transform: translate3d(160px, -110px, 10px);
 
-        @for $i from 2 through 38 { // Adjust 10 to the max number of books you expect
+        @for $i from 2 through 38 { 
             &:nth-child(#{$i}) {
-              transform: translate3d(160px, translateYValue($i), 10px);
+              transform: translate3d(150px, translateYValue($i), 10px);
             }
       }
     }
 
     .book-container {
-      @for $i from 2 through 38 { // Adjust 10 to the max number of books you expect
+      @for $i from 2 through 38 { 
         &:nth-child(#{$i}) {
           transform: translateY(translateYValue($i));
         }
@@ -51,16 +53,40 @@
   // Responsive adjustments for desktop view
   @include responsive(desktop) {
     .books-grid {
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
 
-    .book-container {
-      @for $i from 2 through 38 { // Adjust 10 to the max number of books you expect
-        &:nth-child(#{$i}) {
-          transform: translateY(translateYValue($i));
+    .book-container.shifted {
+      @for $i from 2 through 38 {   
+        @if (($i - 2) % 4 == 0 or ($i - 6) % 12 == 0) { 
+            &:nth-child(#{$i}) {
+                transform: translate3d(-200px, -($i - 2)*120px, 10px);
+            }
         }
+    }
+    @for $i from 4 through 38 {
+      @if (($i - 4) % 4 == 0 or ($i - 8) % 12 == 0) { 
+          &:nth-child(#{$i}) {
+              transform: translate3d(-40px, -($i - 2)*120px, 10px);
+          }
       }
     }
   }
-  
-  
+
+  .book-container {
+      @for $i from 2 through 38 { 
+        &:nth-child(#{$i}) {
+          transform: translateY(translateYValueDesk($i));
+        }
+      }
+
+      @for $i from 3 through 38 {
+        @if (($i - 3) % 4 == 0 or ($i - 7) % 12 == 0) { 
+            &:nth-child(#{$i}) {
+                transform: translate3d(160px, translateYValueDesk($i), 10px);
+            }
+        }
+      }
+    
+  }
+}
