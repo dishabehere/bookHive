@@ -61,10 +61,15 @@
         background-color: $button-primary-color;
         padding: .5rem 1rem;
         border-radius: 1.25rem;
-        border: .125rem solid black;
+        border: .125rem solid $global-text-color;
     }
 
     &__container > span{
         align-items: center;
+    }
+
+    &__add-link {
+        text-decoration: none;
+        color: $global-text-color;
     }
 }

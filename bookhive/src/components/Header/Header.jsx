@@ -45,7 +45,7 @@ function Header() {
                 onClose={handleClose}
                 >
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>Add Book</MenuItem>
+                <Link to={`/books/add`} className="header__add-link"><MenuItem onClick={handleClose}>Add Book</MenuItem></Link>
                 <MenuItem onClick={handleClose}>My Rentals</MenuItem>
                 <MenuItem onClick={handleClose}>My Listings</MenuItem>
                 <MenuItem onClick={() => { handleClose(); handleLogout(); }}>Logout</MenuItem>
