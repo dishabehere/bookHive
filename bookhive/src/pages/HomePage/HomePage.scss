@@ -67,4 +67,16 @@
         height: 1.25rem;
         cursor: pointer;
     }
+
+    &__sub-heading {
+        padding-top: 1rem;
+
+        @include responsive(tablet){
+            padding-top: 1.5rem;
+        }
+
+        @include responsive(desktop){
+            padding-top: 2rem;
+        }
+    }
 }

@@ -36,7 +36,7 @@ function HomePage() {
       </section>
 
       <section className="home__books">
-        <h2 className="home__sub-heading">Available Books</h2>
+        <h2 className="home__sub-heading">Available Books:</h2>
         {books.length > 0 ? <BooksGrid books={books} /> : <p>No books available</p>}
       </section>
     </section>

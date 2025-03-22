@@ -1,0 +1,103 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.form {
+  &__details {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1rem;
+
+    @include responsive(tablet) {
+      flex-direction: column;
+      width: 50%;
+      margin: auto;
+    }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+
+  &__label {
+    padding-bottom: .25rem;
+  }
+
+  &__input {
+    margin-top: 0.25rem;
+    height: 2.25rem;
+    border-radius: 1.25rem;
+    border: 0.0625rem solid $card-border-color;
+    padding: 0.5rem 1rem;
+
+    &:focus {
+      border: 0.125rem solid $label-color;
+      outline: none;
+    }
+
+    &--error {
+      border: .0625rem solid $error-state-color; 
+    }
+}   
+  
+
+  &__error {
+    color: $error-state-color;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 1.5rem;
+    background-color: $button-secondary-color;
+    gap: 1rem;
+    border-bottom-right-radius: 1.5625rem;
+    border-bottom-left-radius: 1.5625rem;
+
+    @include responsive(tablet) {
+        margin-top: 2rem;
+        justify-content: flex-end;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    height: 2.25rem;
+    border: 0;
+    border-radius: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include text-style(0.8125rem, 1rem, 600);
+
+    @include responsive(tablet) {
+      width: auto;
+      padding: 0.5rem 1rem;
+      height: 1.375rem;
+    }
+
+    &--cancel {
+      background-color: $secondary-text-color;
+      border: 0.0625rem solid $global-text-color;
+      color: $global-text-color;
+
+      &:hover {
+        border-color: $background-color;
+        color: $background-color;
+      }
+    }
+
+    &--submit {
+      background-color: $button-primary-color;
+      color: $secondary-text-color;
+
+      &:hover {
+        background-color: $background-color;
+      }
+    }
+  }
+}
