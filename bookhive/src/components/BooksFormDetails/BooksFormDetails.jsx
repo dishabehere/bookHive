@@ -21,10 +21,18 @@ function BooksFormDetails() {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    if (!isAddPage) {
+    if (isAddPage) {
+      setFormData({
+        title: "",
+        author: "",
+        edition: "",
+        synopsis: "",
+        cost: "",
+      });
+    } else {
       fetchBookDetails();
     }
-  }, [id]);
+  }, [id, isAddPage]);
 
   const fetchBookDetails = async () => {
     try {
