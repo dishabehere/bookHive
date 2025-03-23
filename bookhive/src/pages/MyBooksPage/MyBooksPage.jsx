@@ -7,9 +7,10 @@ import BooksGrid from "../../components/BooksGrid/BooksGrid";
 import "./MyBooksPage.scss";
 
 function MyBooksPage() {
-    const { id } = useParams(); // Get user ID from the route
+    // const { user_id } = useParams(); // Get user ID from the route
     const location = useLocation();
     const [books, setBooks] = useState([]);
+    const isMyRentalsPage = location.pathname.includes("/rentalBooks");
 
     const user_id = 20; // Temporary hardcoded user ID
 
@@ -21,10 +22,10 @@ function MyBooksPage() {
         const fetchBooks = async () => {
             try {
                 let booksData;
-                if (isMyBooksPage) {
-                    booksData = await getMyBooks(user_id);
-                } else {
+                if (isMyRentalsPage) {
                     booksData = await getRentalBooks(user_id);
+                } else {
+                    booksData = await getMyBooks(user_id);
                 }
                 setBooks(booksData || []);
             } catch (error) {
@@ -41,13 +42,13 @@ function MyBooksPage() {
                 <Link to={`/Home`} className="mybooks__header-link">
                     <img className="mybooks__arrow-icon" src={arrow} alt="Backwards Arrow" />
                 </Link>
-                {isMyBooksPage ? (
-                    <h1 className="mybooks__my-books">My Listings</h1>
-                ) : (
+                {isMyRentalsPage ? (
                     <h1 className="mybooks__rental-books">My Rentals</h1>
+                ) : (
+                    <h1 className="mybooks__my-books">My Listings</h1>
                 )}
             </section>
-            <BooksGrid books={books} isMyBooksPage={isMyBooksPage} showEditOptions={showEditOptions} />
+            <BooksGrid books={books} isMyBooksPage={isMyBooksPage} isMyRentalsPage={isMyRentalsPage} showEditOptions={showEditOptions} />
         </section>
     );
 }

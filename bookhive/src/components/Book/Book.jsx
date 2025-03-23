@@ -8,12 +8,6 @@ import "./Book.scss";
 function Book({ book, showEditOptions }) {
   return (
     <div className="book">
-      {showEditOptions && (
-        <div className="book__actions">
-          <img className="book__edit-icon" src={editIcon} alt="Edit" />
-          <img className="book__delete-icon" src={deleteIcon} alt="Delete" />
-        </div>
-      )}
       <Link to={`/books/${book.id}`} className="book__link">
         <div className="book__hexagon">
           <img className="book__cover" src={book.cover || coverPlaceholder} alt={`${book.title} cover`} />
@@ -23,6 +17,12 @@ function Book({ book, showEditOptions }) {
             <p className="hexagon__status">Status: {book.status}</p>
             <p className="hexagon__address">{book.address}, {book.city}</p>
           </div>
+          {showEditOptions && (
+            <div className="book__actions">
+              <img className="book__edit-icon" src={editIcon} alt="Edit" />
+              <img className="book__delete-icon" src={deleteIcon} alt="Delete" />
+            </div>
+          )}
         </div>
       </Link>
     </div>
