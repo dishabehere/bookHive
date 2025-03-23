@@ -3,8 +3,9 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { getBook, createBook, updateBook } from "../../utils/apiUtils.jsx";
 import "./BooksFormDetails.scss";
 
-function BooksFormDetails(id) {
+function BooksFormDetails() {
   const location = useLocation();
+  const { id } = useParams(); 
   const navigate = useNavigate();
   const isAddPage = location.pathname.includes("/add");
 
