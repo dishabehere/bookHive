@@ -74,3 +74,14 @@ export const getRentalBooks = async (id) => {
       throw error;
   }
 };
+
+// Get a user
+export const getUser = async (user_id) => {
+  try {
+      const response = await axios.get(`${BASE_URL}/api/users/${user_id}`);
+      return response.data;
+  } catch (error) {
+      console.error("Error fetching user:", error);
+      throw error;
+  }
+};

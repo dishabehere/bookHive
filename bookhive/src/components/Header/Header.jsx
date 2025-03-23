@@ -33,7 +33,9 @@ function Header({ auth, handleLogin, handleLogout }) {
             <div className="header__account">
               <img className="header__profile" src={profile} onClick={handleMenu} alt="Profile Icon" />
               <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <Link to={`/users/:id`} className="header__link">
+                  <MenuItem onClick={handleClose}>Profile</MenuItem>
+                </Link>
                 <Link to={`/books/add`} className="header__link">
                   <MenuItem onClick={handleClose}>Add Book</MenuItem>
                 </Link>
