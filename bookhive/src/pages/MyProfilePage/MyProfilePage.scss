@@ -1,0 +1,94 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.profile {
+  background-color: $tertiary-background-color;
+  margin: -3.5rem 1rem 0.3125rem;
+  border-radius: 1.5625rem;
+  box-shadow: 0 0.125rem 0.3125rem $box-shadow;
+  padding: 1.5rem;
+
+  @include responsive(tablet){
+      margin: -5.625rem 2rem 0;
+      padding: 2rem;
+  }
+
+  @include responsive(desktop){
+      margin: -5.625rem 8.125rem 0;
+      padding: 2.5rem;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+  }
+
+  &__back {
+    text-decoration: none;
+    color: $global-text-color;
+    font-weight: bold;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 1rem;
+
+    @include responsive(tablet) {
+      text-align: left;
+      margin-top: 2rem;
+    }
+
+    @include responsive(desktop) {
+        margin-top: 3rem;
+    }
+  }
+
+  &__info {
+    background: $button-secondary-color;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px $box-shadow;
+    width: 100%;
+    max-width: 500px;
+    
+    p {
+      margin: 0.5rem 0;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 1rem;
+  }
+
+  &__edit-icon, &__delete-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__loading {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+  }
+}
