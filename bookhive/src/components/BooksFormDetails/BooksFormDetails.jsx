@@ -100,7 +100,7 @@ function BooksFormDetails(id) {
         });
         setSubmitted(false);
 
-        navigate("/");
+        navigate("/Home");
       } catch (error) {
         console.error("Error submitting form:", error?.response?.data || error.message);
         alert("Failed to submit the book details.");
@@ -109,7 +109,7 @@ function BooksFormDetails(id) {
   };
 
   const handleCancel = () => {
-    navigate("/");
+    navigate("/Home");
   };
 
   return (
