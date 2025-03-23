@@ -13,6 +13,8 @@ function BookDetailsPage() {
 
   // Check if the book was accessed from My Listings
   const fromMyListings = location.state?.fromMyListings || false;
+  const fromMyBooksPage = location.state?.fromMyBooksPage || false;
+  const fromMyRentalsPage = location.state?.fromMyRentalsPage || false;
 
   useEffect(() => {
     const fetchBookDetails = async () => {
@@ -72,7 +74,10 @@ function BookDetailsPage() {
                 <p><strong>Location:</strong> {book.address}, {book.city}</p>
               </div>
             </div>
-            <button className="book-details__rent">Rent Now</button>
+            {/* Hide Rent Button if accessed from My Listings or My Rentals */}
+            {!fromMyBooksPage && !fromMyRentalsPage && (
+              <button className="book-details__rent">Rent Now</button>
+            )}
           </div>
         </div>
       </div>
