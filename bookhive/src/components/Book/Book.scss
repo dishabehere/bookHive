@@ -9,12 +9,16 @@
   width: 300px;
   height: 350px;
   background: linear-gradient(to right, #F76E02, $card-background-color);
-  // background-color: #eec33d;
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 15px;
   position: relative;
   overflow: hidden;
+
+  &__link{
+    text-decoration: none;
+    color: $global-text-color ;
+  }
 
   &__hexagon {
     display: flex;

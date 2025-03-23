@@ -1,11 +1,13 @@
 import React from "react";
 import coverPlaceholder from "../../assets/images/cover.jpg"; // Fallback cover
+import { Link } from "react-router-dom";
 import "./Book.scss";
 
 function Book({ book }) {
   return (
+    <Link to={`/books/${book.id}`} className="book__link">
     <div className="book">
-      <div className="book__hexagon">
+        <div className="book__hexagon">
         <img className="book__cover" src={book.cover || coverPlaceholder} alt={`${book.title} cover`} />
         <div className="hexagon__content">
           <h3 className="hexagon__title">{book.title}</h3>
@@ -15,6 +17,7 @@ function Book({ book }) {
         </div>
       </div>
     </div>
+    </Link>
   );
 }
 

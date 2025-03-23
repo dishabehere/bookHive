@@ -4,6 +4,7 @@ import Footer from "../src/components/Footer/Footer.jsx";
 import LandingPage from "../src/pages/LandingPage/LandingPage.jsx";
 import HomePage from "../src/pages/HomePage/HomePage.jsx";
 import BooksFormPage from "../src/pages/BooksFormPage/BooksFormPage.jsx";
+import BookDetailsPage from "./pages/BookDetailsPage/BookDetailsPage.jsx";
 import React, { useState } from "react";
 import './App.scss';
 
@@ -31,6 +32,7 @@ function App() {
       <Routes>
       <Route path="/" element={<LandingPage  handleLogin={handleLogin} />} />
       <Route path="/Home" element={<HomePage />} />
+      <Route path="/books/:id" element={<BookDetailsPage />} />
       <Route path="/books/add" element={<BooksFormPage />} />
       <Route path="/books/:id/edit" element={<BooksFormPage />} />
       </Routes>
