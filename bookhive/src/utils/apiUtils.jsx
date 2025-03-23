@@ -52,3 +52,25 @@ export const deleteBook = async (id) => {
       throw error;
     }
 };
+
+// Get the user's books
+export const getMyBooks = async (id) => {
+  try {
+      const response = await axios.get(`${BASE_URL}/api/users/${id}/myBooks`);
+      return response.data;
+  } catch (error) {
+      console.error("Error fetching user's books:", error);
+      throw error;
+  }
+};
+
+// Get the books rented by the user
+export const getRentalBooks = async (id) => {
+  try {
+      const response = await axios.get(`${BASE_URL}/api/users/${id}/rentalBooks`);
+      return response.data;
+  } catch (error) {
+      console.error("Error fetching rental books:", error);
+      throw error;
+  }
+};
