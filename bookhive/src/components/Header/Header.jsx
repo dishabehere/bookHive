@@ -37,8 +37,12 @@ function Header({ auth, handleLogin, handleLogout }) {
                 <Link to={`/books/add`} className="header__add-link">
                   <MenuItem onClick={handleClose}>Add Book</MenuItem>
                 </Link>
-                <MenuItem onClick={handleClose}>My Rentals</MenuItem>
-                <MenuItem onClick={handleClose}>My Listings</MenuItem>
+                <Link to={`/users/:id/rentalBooks`} className="header__rental-link">
+                  <MenuItem onClick={handleClose}>My Rentals</MenuItem>
+                </Link>
+                <Link to={`/users/:id/myBooks`} className="header__my-link">
+                  <MenuItem onClick={handleClose}>My Listings</MenuItem>
+                </Link>
                 <MenuItem onClick={() => { handleClose(); handleLogout(); }}>Logout</MenuItem>
               </Menu>
             </div>

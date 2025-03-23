@@ -5,6 +5,7 @@ import LandingPage from "../src/pages/LandingPage/LandingPage.jsx";
 import HomePage from "../src/pages/HomePage/HomePage.jsx";
 import BooksFormPage from "../src/pages/BooksFormPage/BooksFormPage.jsx";
 import BookDetailsPage from "./pages/BookDetailsPage/BookDetailsPage.jsx";
+import MyBooksPage from "./pages/MyBooksPage/MyBooksPage.jsx";
 import React, { useState } from "react";
 import './App.scss';
 
@@ -35,6 +36,8 @@ function App() {
       <Route path="/books/:id" element={<BookDetailsPage />} />
       <Route path="/books/add" element={<BooksFormPage />} />
       <Route path="/books/:id/edit" element={<BooksFormPage />} />
+      <Route path="/users/:id/myBooks" element={<MyBooksPage />} />
+      <Route path="/users/:id/rentalBooks" element={<MyBooksPage />} />
       </Routes>
       <Footer />
     </Router>
