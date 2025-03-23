@@ -7,20 +7,23 @@ import BooksGrid from "../../components/BooksGrid/BooksGrid";
 import "./MyBooksPage.scss";
 
 function MyBooksPage() {
-    // const {user_id} = useParams(); // Ideally it should get user ID from the route
+    const { id } = useParams(); // Get user ID from the route
     const location = useLocation();
     const [books, setBooks] = useState([]);
-    const isMyRentalsPage = location.pathname.includes("/rentalBooks");
-    
+
     const user_id = 20; // Temporary hardcoded user ID
+
+    // State to check if user is on "My Listings" or "My Rentals" page
+    const isMyBooksPage = location.pathname.includes("/myBooks");
+    const showEditOptions = isMyBooksPage; // Show edit/delete buttons for "My Listings" only
 
     useEffect(() => {
         const fetchBooks = async () => {
             try {
                 let booksData;
-                if (location.pathname.includes("/myBooks")) {
+                if (isMyBooksPage) {
                     booksData = await getMyBooks(user_id);
-                } else if (location.pathname.includes("/rentalBooks")) {
+                } else {
                     booksData = await getRentalBooks(user_id);
                 }
                 setBooks(booksData || []);
@@ -38,13 +41,13 @@ function MyBooksPage() {
                 <Link to={`/Home`} className="mybooks__header-link">
                     <img className="mybooks__arrow-icon" src={arrow} alt="Backwards Arrow" />
                 </Link>
-                {isMyRentalsPage ? (
-                    <h1 className="mybooks__rental-books">My Rentals</h1>
-                    ) : (
+                {isMyBooksPage ? (
                     <h1 className="mybooks__my-books">My Listings</h1>
+                ) : (
+                    <h1 className="mybooks__rental-books">My Rentals</h1>
                 )}
             </section>
-            <BooksGrid books={books} />
+            <BooksGrid books={books} isMyBooksPage={isMyBooksPage} showEditOptions={showEditOptions} />
         </section>
     );
 }
