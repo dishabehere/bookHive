@@ -1,0 +1,125 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.book-details {
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+  background-color: $primary-background-color;
+  color: $global-text-color;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  &__back {
+    text-decoration: none;
+    color: $global-text-color;
+    font-weight: bold;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 1rem;
+
+    @include responsive(tablet) {
+      flex-direction: row;
+      text-align: left;
+      gap: 2rem;
+    }
+  }
+
+  &__cover {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px $box-shadow;
+    background: $secondary-background-color;
+  }
+
+  &__info {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: $button-secondary-color;
+    border-radius: 8px;
+    width: 90%;
+    box-shadow: 0 2px 4px $box-shadow;
+
+    @include responsive(tablet) {
+      width: 50%;
+    }
+
+    p {
+      margin: 0.5rem 0;
+      @include text-style(1rem, 1.4rem, 500);
+    }
+  }
+
+  &__owner {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: $tertiary-background-color;
+    border-radius: 8px;
+    text-align: center;
+    width: 90%;
+    box-shadow: 0 2px 4px $box-shadow;
+
+    @include responsive(tablet) {
+      width: 50%;
+    }
+
+    h3 {
+      @include text-style(1.2rem, 1.6rem, 600);
+      color: $secondary-text-color;
+    }
+  }
+
+  &__owner-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  &__owner-avatar {
+    width: 50px;
+    height: 50px;
+    background: $global-text-color;
+    color: $secondary-text-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: bold;
+  }
+
+  &__rent {
+    margin-top: 1rem;
+    background: $button-primary-color;
+    color: $global-text-color;
+    padding: 0.7rem;
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    // transition: background 0.3s;
+
+    &:hover {
+      // background: ;
+    }
+  }
+
+  &__loading {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+  }
+}
