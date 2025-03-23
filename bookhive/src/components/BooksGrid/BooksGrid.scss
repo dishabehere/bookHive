@@ -34,7 +34,7 @@
     .book-container.shifted {
         transform: translate3d(160px, -110px, 10px);
 
-        @for $i from 2 through 38 { 
+        @for $i from 2 through 41 { 
             &:nth-child(#{$i}) {
               transform: translate3d(150px, translateYValue($i), 10px);
             }
@@ -42,7 +42,7 @@
     }
 
     .book-container {
-      @for $i from 2 through 38 { 
+      @for $i from 2 through 41 { 
         &:nth-child(#{$i}) {
           transform: translateY(translateYValue($i));
         }
@@ -57,14 +57,14 @@
     }
 
     .book-container.shifted {
-      @for $i from 2 through 38 {   
+      @for $i from 2 through 41 {   
         @if (($i - 2) % 4 == 0 or ($i - 6) % 12 == 0) { 
             &:nth-child(#{$i}) {
                 transform: translate3d(-200px, -($i - 2)*120px, 10px);
             }
         }
     }
-    @for $i from 4 through 38 {
+    @for $i from 4 through 41 {
       @if (($i - 4) % 4 == 0 or ($i - 8) % 12 == 0) { 
           &:nth-child(#{$i}) {
               transform: translate3d(-40px, -($i - 2)*120px, 10px);
@@ -74,13 +74,13 @@
   }
 
   .book-container {
-      @for $i from 2 through 38 { 
+      @for $i from 2 through 41 { 
         &:nth-child(#{$i}) {
           transform: translateY(translateYValueDesk($i));
         }
       }
 
-      @for $i from 3 through 38 {
+      @for $i from 3 through 41 {
         @if (($i - 3) % 4 == 0 or ($i - 7) % 12 == 0) { 
             &:nth-child(#{$i}) {
                 transform: translate3d(160px, translateYValueDesk($i), 10px);
