@@ -25,7 +25,7 @@ function Header({ auth, handleLogin, handleLogout }) {
           <img className="header__home" src={home} alt="Home icon" />
         </Link>
         <div className="header__container">
-          <Badge color="secondary" badgeContent={0} showZero>
+          <Badge color="secondary" badgeContent={0}>
             <ShoppingCartIcon className="header__cart" />
           </Badge>
 
