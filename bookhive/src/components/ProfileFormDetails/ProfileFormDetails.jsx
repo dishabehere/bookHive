@@ -99,7 +99,7 @@ function ProfileFormDetails({ isAddPage }) {
             </div>
 
             <div className="profile-form__buttons">
-                <button type="button" className="profile-form__button profile-form__button--cancel" onClick={() => navigate("/Home")}>Cancel</button>
+                <button type="button" className="profile-form__button profile-form__button--cancel" onClick={() => navigate(isAddPage ? "/" : "/Home")}>Cancel</button>
                 <button type="submit" className="profile-form__button profile-form__button--submit">Save</button>
             </div>
         </form>
