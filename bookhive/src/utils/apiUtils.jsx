@@ -96,3 +96,25 @@ export const deleteUser = async (user_id) => {
       throw error;
   }
 };
+
+// Create a new user
+export const createUser = async (userData) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/api/users`, userData);
+    return response.data;
+  } catch (error) {
+    console.error("Error creating user:", error);
+    throw error;
+  }
+};
+
+// Update an existing user
+export const updateUser = async (id, userData) => {
+  try {
+    const response = await axios.put(`${BASE_URL}/api/users/${id}`, userData);
+    return response.data;
+  } catch (error) {
+    console.error("Error updating user:", error);
+    throw error;
+  }
+};

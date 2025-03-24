@@ -50,7 +50,7 @@ function MyProfilePage() {
         </div>
 
         <div className="profile__actions">
-          <Link to={`/profile/${user_id}/edit`} className="profile__edit-link">
+          <Link to={`/users/${user_id}/edit`} className="profile__edit-link">
             <img className="profile__edit-icon" src={editIcon} alt="Edit Profile" />
           </Link>
           <img
