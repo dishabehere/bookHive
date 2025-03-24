@@ -1,5 +1,6 @@
 import React from "react";
 import hero from "../../assets/images/landing_page.jpg";
+import { Link } from "react-router-dom";
 import "./LandingPage.scss";
 
 function LandingPage({ handleLogin }) {
@@ -20,9 +21,11 @@ function LandingPage({ handleLogin }) {
               <h3>LogIn</h3>
             </button>
             <p className="landingpage__text landingpage__text--buttons">OR</p>
-            <button className="landingpage__button landingpage__button--signup">
-              <h3>SignUp</h3>
-            </button>
+            <Link to={`/users/add`} className="landingpage__link">
+              <button className="landingpage__button landingpage__button--signup">
+                <h3>SignUp</h3>
+              </button>
+            </Link>
           </div>
         </div>
       </div>
