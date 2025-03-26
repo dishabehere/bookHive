@@ -1,11 +1,13 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
+$shift: 150px;
+
 .books-grid {
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: max-content;
+  justify-content: center;
 
   &--mybooks {
     padding: 1.5rem;
@@ -13,7 +15,7 @@
 
   @include responsive(tablet) {
     position: relative;
-    left: -75px;
+    left: calc(-1 * $shift / 2);
 
     &--mybooks {
       height: auto;
@@ -21,14 +23,27 @@
     }
   }
 
-  .book-container {
-    @include responsive(tablet) {
-      height: 264px;
+  @include responsive(desktop) {
+    grid-template-columns: max-content max-content;
+  }
+}
 
-      &.shifted {
-        position: relative;
-        left: 150px;
-      }
+.book-container {
+  @include responsive(tablet) {
+    height: 264px;
+    position: relative;
+    &:nth-child(even) {
+      left: $shift;
+    }
+  }
+
+  @include responsive(desktop) {
+    &:nth-child(even) {
+      left: 0;
+    }
+    &:nth-child(4n-1),
+    &:nth-child(4n) {
+      left: $shift;
     }
   }
 }
