@@ -7,18 +7,18 @@
     border-radius: 1.5625rem;
     box-shadow: 0 0.125rem 0.3125rem $box-shadow;
     padding: 2rem 1.5rem;
-    height: 916.5rem;
+    padding-bottom: 5rem;
 
     @include responsive(tablet){
         margin: -5.625rem 2rem 0;
         padding: 2rem;
-        height: 662.625rem;
+        padding-bottom: 5rem;
     }
 
     @include responsive(desktop){
         margin: -5.625rem 8.125rem 0;
         padding: 2.5rem;
-        height: 5730px;
+        padding-bottom: 5rem;
     }
 
     &__header{
