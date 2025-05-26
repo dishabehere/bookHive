@@ -9,7 +9,7 @@ import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import "./Header.scss";
 
-function Header({ auth, handleLogin, handleLogout }) {
+function Header({ auth, handleLogin, handleLogout, cartCount }) {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleMenu = (event) => setAnchorEl(event.currentTarget);
@@ -25,7 +25,7 @@ function Header({ auth, handleLogin, handleLogout }) {
           <img className="header__home" src={home} alt="Home icon" />
         </Link>
         <div className="header__container">
-          <Badge color="secondary" badgeContent={0}>
+          <Badge color="secondary" badgeContent={cartCount}>
             <ShoppingCartIcon className="header__cart" />
           </Badge>
 

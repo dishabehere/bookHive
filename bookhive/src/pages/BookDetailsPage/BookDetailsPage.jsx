@@ -7,7 +7,7 @@ import editIcon from "../../assets/icons/edit-24px.svg";
 import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import "./BookDetailsPage.scss";
 
-function BookDetailsPage() {
+function BookDetailsPage({ setCartCount }) {
   const { id } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
@@ -15,6 +15,8 @@ function BookDetailsPage() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const fromMyListings = location.state?.fromMyListings || false;
+  const fromMyBooksPage = location.state?.fromMyBooksPage || false;
+  const fromMyRentalsPage = location.state?.fromMyRentalsPage || false;
 
   useEffect(() => {
     const fetchBookDetails = async () => {
@@ -25,6 +27,10 @@ function BookDetailsPage() {
     };
     fetchBookDetails();
   }, [id]);
+
+  const handleRentClick = () => {
+    setCartCount((prevCount) => prevCount + 1);
+  };
 
   const openDeleteModal = () => setModalIsOpen(true);
   const closeModal = () => setModalIsOpen(false);
@@ -77,7 +83,21 @@ function BookDetailsPage() {
             <p><strong>Synopsis:</strong> {book.synopsis}</p>
           </div>
         </div>
-      </div>
+        <div className="book-details__owner">
+            <h2 className="book-details__owner-title">Owner Details</h2>
+            <div className="book-details__owner-info">
+              {/* <div className="book-details__owner-avatar">DB</div> */}
+              <div>
+                <p><strong>Name:</strong> {book.owner_name}</p>
+                <p><strong>Location:</strong> {book.address}, {book.city}</p>
+              </div>
+            </div>
+            {/* Hide Rent Button if accessed from My Listings or My Rentals */}
+            {!fromMyBooksPage && !fromMyRentalsPage && (
+              <button className="book-details__rent" onClick={handleRentClick}>Rent Now</button>
+            )}
+          </div>
+        </div>
 
       <ModalDelete
         modalIsOpen={modalIsOpen}

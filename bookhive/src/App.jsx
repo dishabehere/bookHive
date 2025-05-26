@@ -13,6 +13,7 @@ import './App.scss';
 
 function App() {
   // Retrieve auth state from localStorage on initial load
+  const [cartCount, setCartCount] = useState(0); // Track cart count
   const [auth, setAuth] = useState(() => {
     return localStorage.getItem("auth") === "true"; // Convert string to boolean
   });
@@ -33,9 +34,9 @@ function App() {
     <Router>
       <Header auth={auth} handleLogin={handleLogin} handleLogout={handleLogout}/>
       <Routes>
-      <Route path="/" element={<LandingPage  handleLogin={handleLogin} />} />
+      <Route path="/" element={<LandingPage  handleLogin={handleLogin} cartCount={cartCount}/>} />
       <Route path="/Home" element={<HomePage />} />
-      <Route path="/books/:id" element={<BookDetailsPage />} />
+      <Route path="/books/:id" element={<BookDetailsPage setCartCount={setCartCount} />} />
       <Route path="/books/add" element={<BooksFormPage />} />
       <Route path="/books/:id/edit" element={<BooksFormPage />} />
       <Route path="/users/add" element={<ProfileFormPage />} />
